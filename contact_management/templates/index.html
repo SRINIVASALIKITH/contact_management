@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Contact List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Work</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact['name'] }}</td>
+                    <td>{{ contact['email'] }}</td>
+                    <td>{{ contact['phone'] }}</td>
+                    <td>{{ contact['work'] }}</td>
+                    <td>{{ contact['address'] }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_contact', id=contact['id']) }}" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

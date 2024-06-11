@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>View Contacts</h2>
+    <table style="border: 1px solid black; border-collapse: collapse;">
+        <thead style="border-bottom: 2px solid black;">
+            <tr>
+                <th style="border-right: 1px solid black; padding: 8px;">Name</th>
+                <th style="border-right: 1px solid black; padding: 8px;">Email</th>
+                <th style="border-right: 1px solid black; padding: 8px;">Phone</th>
+                <th style="border-right: 1px solid black; padding: 8px;">Work</th>
+                <th style="padding: 8px;">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr style="border-top: 1px solid black;">
+                    <td style="border-right: 1px solid black; padding: 8px;">{{ contact['name'] }}</td>
+                    <td style="border-right: 1px solid black; padding: 8px;">{{ contact['email'] }}</td>
+                    <td style="border-right: 1px solid black; padding: 8px;">{{ contact['phone'] }}</td>
+                    <td style="border-right: 1px solid black; padding: 8px;">{{ contact['work'] }}</td>
+                    <td style="padding: 8px;">{{ contact['address'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
